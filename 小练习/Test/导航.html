@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	*{
+        		margin: 0;
+        		padding: 0;
+        	}
+        	ul{
+        		list-style: none;
+        	}
+        	body{
+        		background-color: #333;
+        		font: 宋体;
+        	}
+        	nav{
+        		width: 800px;
+        		height: 42px;
+        		border-radius: 10px;
+        		margin: 5px auto;
+        		background: url(./images/rss.png) right center no-repeat;
+        		background-color: #fff;
+        		position: relative;
+        	}
+        	nav li{
+        		width: 83px;
+        		line-height: 42px;
+        		text-align: center;
+        		float: left;
+        	}
+        	nav span{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 83px;
+				height: 42px;
+				background: url(./images/cloud.gif) no-repeat;
+        	}
+        	ul{
+        		position: relative;
+        	}
+        </style>
+    </head>
+    <body>
+    	<nav>
+    		<span id="cloud"></span>
+    		<ul id="subNav">
+    			<li>北京校区</li>
+		        <li>上海校区</li>
+		        <li>广州校区</li>
+		        <li>深圳校区</li>
+		        <li>武汉校区</li>
+		        <li>关于我们</li>
+		        <li>联系我们</li>
+		        <li>招贤纳士</li>
+    		</ul>
+    	</nav>
+
+
+    	<script>
+    		var clouds = document.getElementById("cloud");
+    		var ul = document.getElementById("subNav");
+    		var lis = ul.children;
+    		var lastPosition = 0;
+
+    		// 遍历
+    		for (var i = 0; i < lis.length; i++) {
+    			lis[i].onmouseover = function(){
+    				var target = this.offsetLeft;
+    				animate(clouds,target);
+    			}
+    			lis[i].onmouseout = function () {
+		            //让筋斗云 渐渐地 跑回去
+		            animate(clouds, lastPosition);
+		        }
+		        //点击li要记录当前li的位置
+		        lis[i].onclick = function () {
+		            lastPosition = this.offsetLeft;
+		        }
+    		}
+
+    		function animate(obj,target){
+    			clearInterval(obj.timer);
+    			obj.timer = setInterval(function(){
+    				var leader = obj.offsetLeft;
+    				var step = (target - leader) / 5;
+    				step = step > 0 ? Math.ceil(step) : Math.floor(step);
+    				leader = leader + step;
+    				obj.style.left = leader + "px";
+		            if (leader == target) {
+		                clearInterval(obj.timer);
+		            }
+    			},15)
+    		}
+    	</script>
+    </body>
+</html>

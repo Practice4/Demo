@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	body{
+        		font-family: 宋体,Verdana,Helvetica;
+        		font-size: 14px;
+        		background-color: #333;
+        	}
+        	.menu{
+        		width: 800px;
+        		height: 40px;
+        		margin: 10px auto;
+        		background-color: #fff;
+        	}
+        	.menu ul{
+        		margin: 0;
+        		padding: 0;
+        		list-style: none;
+        	}
+        	.menu li {
+        		width: 100px;
+        		height: 40px;
+        		text-align: center;
+        		line-height: 40px;
+        		float: left;
+        	}
+        	.menu li a{
+        		text-decoration: none;
+        		color: #333;
+        		width: 100px;
+        		height: 40px;
+        		display: block;
+        	}
+        	.menu li a:hover{
+				background-color: #fff;
+				color: red;
+        	}
+        	.menu li ul{
+        		display: none;
+        	}
+        	.menu li ul li{
+        		background-color: #fff;
+        		color: #333;
+        		text-align: center;
+        		width: 100px;
+        		height: 40px;
+        	}
+        	.menu ul li ul li a{
+        		text-decoration: none;
+        		display: block;
+        		color: #333;
+        		background: none;
+        	}
+        	.menu ul li ul li a:hover{
+        		background-color: green;
+        		color: #fff;
+        	}
+
+        </style>
+    </head>
+    <body>
+    	<div class="menu">
+    		<ul id="main">
+    			<li>
+    				<a href="#">北京校区</a>
+    				<ul id="sub">
+    					<li><a href="#">二级导航1</a></li>
+    					<li><a href="#">二级导航2</a></li>
+    					<li><a href="#">二级导航3</a></li>
+    					<li><a href="#">二级导航4</a></li>
+    				</ul>
+    			</li>
+		        <li>
+		        	<a href="#">上海校区</a>
+		        	<ul id="sub">
+    					<li><a href="#">二级导航1</a></li>
+    					<li><a href="#">二级导航2</a></li>
+    					<li><a href="#">二级导航3</a></li>
+    					<li><a href="#">二级导航4</a></li>
+    				</ul>
+		        </li>
+		        <li>
+		        	<a href="#">广州校区</a>
+		        	<ul id="sub">
+    					<li><a href="#">二级导航1</a></li>
+    					<li><a href="#">二级导航2</a></li>
+    					<li><a href="#">二级导航3</a></li>
+    					<li><a href="#">二级导航4</a></li>
+    				</ul>
+		        </li>
+		        <li>
+		        	<a href="#">深圳校区</a>
+		        	<ul id="sub">
+    					<li><a href="#">二级导航1</a></li>
+    					<li><a href="#">二级导航2</a></li>
+    					<li><a href="#">二级导航3</a></li>
+    					<li><a href="#">二级导航4</a></li>
+    				</ul>
+		        </li>
+		        <li>
+		        	<a href="#">武汉校区</a>
+		        	<ul id="sub">
+    					<li><a href="#">二级导航1</a></li>
+    					<li><a href="#">二级导航2</a></li>
+    					<li><a href="#">二级导航3</a></li>
+    					<li><a href="#">二级导航4</a></li>
+    				</ul>
+		        </li>
+		        <li>
+		        	<a href="#">关于我们</a>
+		        	<ul>
+    					<li><a href="#">二级导航1</a></li>
+    					<li><a href="#">二级导航2</a></li>
+    					<li><a href="#">二级导航3</a></li>
+    					<li><a href="#">二级导航4</a></li>
+    				</ul>
+		        </li>
+		        <li>
+		        	<a href="#">联系我们</a>
+		        	<ul>
+    					<li><a href="#">二级导航1</a></li>
+    					<li><a href="#">二级导航2</a></li>
+    					<li><a href="#">二级导航3</a></li>
+    					<li><a href="#">二级导航4</a></li>
+    				</ul>
+		        </li>
+		        <li>
+		        	<a href="#">招贤纳士</a>
+		        	<ul>
+    					<li><a href="#">二级导航1</a></li>
+    					<li><a href="#">二级导航2</a></li>
+    					<li><a href="#">二级导航3</a></li>
+    					<li><a href="#">二级导航4</a></li>
+    				</ul>
+		        </li>
+    		</ul>
+    	</div>
+    	<script type="text/javascript">
+    		var ul = document.getElementById("main");
+    		var lis = ul.getElementsByTagName("li");
+    		// var sub = lis.getElementsByTagName("ul");
+    		for(var i=0; i < lis.length; i++){
+	    			lis[i].onmouseover = function(){
+	    				var sub = this.children;
+	    				for(var j=0; j<sub.length; j++){
+		                    sub[j].style.display="block";
+		                }
+	    			}
+	    			lis[i].onmouseout = function(){
+	    				var sub = this.children;
+	    				for(var j=0; j<sub.length; j++){
+		                    sub[j].style.display="";
+		                }
+	    			}
+    		}
+    	</script>
+    </body>
+</html>

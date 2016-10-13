@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title></title>
+    <style type="text/css">
+        #menu ul{
+            padding:0;margin:0;
+        }
+        #menu li{
+            position:relative;
+            width:100px; 
+            display:inline-block;
+        }
+        #menu li ul{
+            position:absolute;
+            top:100%;
+            left:0;
+            height:auto; 
+            background-color:white;
+        }
+    </style>
+ 
+</head>
+<body>
+    <a href="javascript:void(0)" onClick="menu()">Bind The Click</a>
+    <ul id="menu">
+        <li>北京校区</li>
+		        <li>
+		        	上海校区
+					<ul>
+    					<li><a href="#">二级导航1</a></li>
+    					<li><a href="#">二级导航2</a></li>
+    					<li><a href="#">二级导航3</a></li>
+    					<li><a href="#">二级导航4</a></li>
+    				</ul>
+		        </li>
+		        <li>
+		        	广州校区
+					<ul>
+    					<li><a href="#">二级导航1</a></li>
+    					<li><a href="#">二级导航2</a></li>
+    					<li><a href="#">二级导航3</a></li>
+    					<li><a href="#">二级导航4</a></li>
+    				</ul>
+		        </li>
+		        <li>
+		        	深圳校区
+		        	<ul>
+    					<li><a href="#">二级导航1</a></li>
+    					<li><a href="#">二级导航2</a></li>
+    					<li><a href="#">二级导航3</a></li>
+    					<li><a href="#">二级导航4</a></li>
+    				</ul>
+		        </li>
+		        <li>武汉校区</li>
+		        <li>关于我们</li>
+		        <li>联系我们</li>
+		        <li>招贤纳士</li>
+    </ul>
+    <script type="text/javascript">
+    function menu(){
+        var elem=document.getElementById("menu");
+             
+        var ul=elem.getElementsByTagName("ul")
+        for(var i=0;i<ul.length;i++){
+            ul[i].style.display="none";
+        }
+         
+        //bind the action
+        var li=elem.getElementsByTagName("li");
+        for(var i=0;i<li.length;i++){
+            li[i].onmouseover=function(){
+                var inli=this.getElementsByTagName("ul");
+                for(var j=0;j<inli.length;j++){
+                        inli[j].style.display="block";
+                }
+            };
+            li[i].onmouseout=function(){
+                var inli=this.getElementsByTagName("ul");
+                for(var j=0;j<inli.length;j++){
+                        inli[j].style.display="none";
+                }
+            }
+        }
+         
+ 
+    }
+    window.onload=menu();
+    </script>
+</body>
+</html>
